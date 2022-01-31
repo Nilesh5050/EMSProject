@@ -1,0 +1,72 @@
+﻿@model EMSProject.Models.Employees
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+@*<h1>Create</h1>
+
+<h4>Employees</h4>*@
+<hr />
+<div class="row">
+    <div class="col-5 offset-3">
+        <div class="card" style="background-color:aquamarine">
+            <div class="card-header">
+                <h4 class="card-title">Create Employee</h4>
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="card-body">
+                    <form asp-action="Create" asp-controller="Employee" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label asp-for="FirstName"></label>
+                            <input asp-for="FirstName" class="form-control" />
+                            <span asp-validation-for="FirstName" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="LastName"></label>
+                            <input asp-for="LastName" class="form-control" />
+                            <span asp-validation-for="LastName" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Email"></label>
+                            <input asp-for="Email" class="form-control" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Mobile" class="control-label"></label>
+                            <input asp-for="Mobile" class="form-control" />
+                            <span asp-validation-for="Mobile" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Please Select Image</label>
+                            <input type="file" name="Image" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="IsActive"></label>
+                            <select asp-for="IsActive" class="form-control">
+                                <option value="true">IsActive</option>
+                                <option value="false">InActive</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Create" class="btn btn-success" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="from-group">
+    <a asp-action="Index" class="btn btn-primary">Back to List</a>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
